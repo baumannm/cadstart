@@ -20,7 +20,7 @@
    <string>cadstart</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="pyCADuires.qrc">
+   <iconset>
     <normaloff>:/IPEK/img/ipek.png</normaloff>:/IPEK/img/ipek.png</iconset>
   </property>
   <property name="autoFillBackground">
@@ -32,10 +32,10 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>220</x>
-     <y>16</y>
-     <width>150</width>
-     <height>71</height>
+     <x>197</x>
+     <y>40</y>
+     <width>180</width>
+     <height>48</height>
     </rect>
    </property>
    <property name="font">
@@ -69,7 +69,10 @@ p, li { white-space: pre-wrap; }
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="pyCADuires.qrc">:/IPEK/img/logo.png</pixmap>
+    <pixmap resource="pyCADuires.qrc">:/logos/img/opvlogo.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
    </property>
   </widget>
   <widget class="QLabel" name="versionLabel">
@@ -411,7 +414,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="icon">
      <iconset resource="pyCADuires.qrc">
-      <normaloff>:/IPEK/img/icon_rss.png</normaloff>:/IPEK/img/icon_rss.png</iconset>
+      <normaloff>:/icons/img/icon_rss.png</normaloff>:/icons/img/icon_rss.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -440,7 +443,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="icon">
      <iconset resource="pyCADuires.qrc">
-      <normaloff>:/IPEK/img/icon_at.png</normaloff>:/IPEK/img/icon_at.png</iconset>
+      <normaloff>:/icons/img/icon_at.png</normaloff>:/icons/img/icon_at.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -522,7 +525,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="icon">
      <iconset resource="pyCADuires.qrc">
-      <normaloff>:/IPEK/img/1leftarrow.png</normaloff>:/IPEK/img/1leftarrow.png</iconset>
+      <normaloff>:/icons/img/1leftarrow.png</normaloff>:/icons/img/1leftarrow.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="buttonNext">
@@ -545,7 +548,7 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="icon">
      <iconset resource="pyCADuires.qrc">
-      <normaloff>:/IPEK/img/1rightarrow.png</normaloff>:/IPEK/img/1rightarrow.png</iconset>
+      <normaloff>:/icons/img/1rightarrow.png</normaloff>:/icons/img/1rightarrow.png</iconset>
     </property>
    </widget>
    <widget class="QLabel" name="messageCounter">
@@ -708,20 +711,20 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/IPEK/img/icon_grey.png&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/icons/img/icon_grey.png&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Verbindung wurde noch nicht geprüft. Bitte Verbindung prüfen.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/IPEK/img/icon_green.png&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/icons/img/icon_green.png&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Verbindung erfolgreich. Der PDM Server kann genutzt werden&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/IPEK/img/icon_red.png&quot; /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/icons/img/icon_red.png&quot; /&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Verbindung war nicht erfolgreich. Bitte VPN Verbindung erstellen oder  neu verbinden&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="pyCADuires.qrc">:/IPEK/img/icon_grey.png</pixmap>
+     <pixmap resource="pyCADuires.qrc">:/icons/img/icon_grey.png</pixmap>
     </property>
     <property name="scaledContents">
      <bool>true</bool>
@@ -809,10 +812,6 @@ p, li { white-space: pre-wrap; }
     <property name="text">
      <string/>
     </property>
-    <property name="icon">
-     <iconset resource="pyCADuires.qrc">
-      <normaloff>:/IPEK/img/icon_browsing.png</normaloff>:/IPEK/img/icon_browsing.png</iconset>
-    </property>
     <property name="iconSize">
      <size>
       <width>24</width>
@@ -870,10 +869,6 @@ p, li { white-space: pre-wrap; }
     <property name="text">
      <string>CAD/PDM Hilfe</string>
     </property>
-    <property name="icon">
-     <iconset resource="pyCADuires.qrc">
-      <normaloff>:/IPEK/img/icon_help.png</normaloff>:/IPEK/img/icon_help.png</iconset>
-    </property>
     <property name="autoDefault">
      <bool>true</bool>
     </property>
@@ -920,10 +915,6 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="text">
      <string>Cache leeren</string>
-    </property>
-    <property name="icon">
-     <iconset resource="pyCADuires.qrc">
-      <normaloff>:/IPEK/img/icon_cache.png</normaloff>:/IPEK/img/icon_cache.png</iconset>
     </property>
     <property name="autoDefault">
      <bool>true</bool>
@@ -973,7 +964,7 @@ p, li { white-space: pre-wrap; }
     </property>
    </widget>
   </widget>
-  <widget class="QWebView" name="webView">
+  <widget class="QWebView" name="webView" native="true">
    <property name="geometry">
     <rect>
      <x>950</x>
@@ -982,7 +973,7 @@ p, li { white-space: pre-wrap; }
      <height>200</height>
     </rect>
    </property>
-   <property name="url">
+   <property name="url" stdset="0">
     <url>
      <string>about:blank</string>
     </url>
@@ -1034,9 +1025,9 @@ p, li { white-space: pre-wrap; }
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/IPEK/img/exit.png&quot; /&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; Aero &lt;/span&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;läuft&lt;/span&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; und kann per Knopfdruck gestoppt werden.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/icons/img/icon_red.png&quot; /&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; Aero &lt;/span&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;läuft&lt;/span&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; und kann per Knopfdruck gestoppt werden.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/IPEK/img/start.png&quot; /&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; Aero &lt;/span&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;läuft nicht&lt;/span&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; und kann per Knopfdruck gestartet werden.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;:/icons/img/icon_green.png&quot; /&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; Aero &lt;/span&gt;&lt;span style=&quot; font-size:8pt; font-weight:600;&quot;&gt;läuft nicht&lt;/span&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; und kann per Knopfdruck gestartet werden.&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Auf manchen Plattformen sollte Windows Aero abgeschaltet werden während Pro/E verwendet wird. Dieser Knopf erlaubt eine individuelle Steuerung von Aero. Die Änderungen trete unmittelbar in Kraft. Das Bild kann kurz verschwinden.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
@@ -1048,7 +1039,8 @@ p, li { white-space: pre-wrap; }
     </property>
     <property name="icon">
      <iconset resource="pyCADuires.qrc">
-      <normaloff>:/IPEK/img/exit.png</normaloff>:/IPEK/img/exit.png</iconset>
+      <normaloff>:/icons/img/icon_red.png</normaloff>
+      <activeon>:/icons/img/icon_green.png</activeon>:/icons/img/icon_red.png</iconset>
     </property>
     <property name="iconSize">
      <size>
@@ -1061,61 +1053,31 @@ p, li { white-space: pre-wrap; }
     </property>
    </widget>
   </widget>
-  <widget class="QLabel" name="labelMAC">
+  <widget class="QLabel" name="versionLabel_2">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>585</y>
-     <width>321</width>
-     <height>20</height>
+     <x>240</x>
+     <y>10</y>
+     <width>161</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <underline>false</underline>
+     <family>Arial</family>
+     <pointsize>12</pointsize>
+     <weight>75</weight>
+     <bold>true</bold>
     </font>
    </property>
-   <property name="cursor">
-    <cursorShape>PointingHandCursor</cursorShape>
-   </property>
-   <property name="toolTip">
-    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Die hier angezeigte sogenannte MAC Adresse wird für den Bezug der Lizenz über den &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Account bei ptc.com benötigt. Normalerweise erfolgt die Ermittlung und Übermittlung &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;dieser für jeden Computer individuellen ID automatisch bei der Installation der Pro/E &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Schools Edition.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Falls die Lizenz manuell beantragt wird, kann diese auch HOST-ID gennannte Zeichenfolge &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;verwendet werden.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Nutzung auf eigene Gefahr!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-   </property>
-   <property name="whatsThis">
-    <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Die hier angezeigte sogenannte MAC Adresse wird für den Bezug der Lizenz über den &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Account bei ptc.com benötigt. Normalerweise erfolgt die Ermittlung und Übermittlung &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;dieser für jeden Computer individuellen ID automatisch bei der Installation der Pro/E &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Schools Edition.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Falls die Lizenz manuell beantragt wird, kann diese auch HOST-ID gennannte Zeichenfolge &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;verwendet werden.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:8pt;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Nutzung auf eigene Gefahr!&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+   <property name="layoutDirection">
+    <enum>Qt::RightToLeft</enum>
    </property>
    <property name="text">
-    <string>showMyMAC</string>
+    <string>powered by</string>
    </property>
-   <property name="openExternalLinks">
-    <bool>false</bool>
-   </property>
-   <property name="textInteractionFlags">
-    <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByMouse</set>
+   <property name="alignment">
+    <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
    </property>
   </widget>
  </widget>
@@ -1134,7 +1096,6 @@ p, li { white-space: pre-wrap; }
   <tabstop>buttonStart</tabstop>
  </tabstops>
  <resources>
-  <include location="pyCADuires.qrc"/>
   <include location="pyCADuires.qrc"/>
  </resources>
  <connections>
@@ -1311,22 +1272,6 @@ p, li { white-space: pre-wrap; }
     <hint type="destinationlabel">
      <x>375</x>
      <y>189</y>
-    </hint>
-   </hints>
-  </connection>
-  <connection>
-   <sender>labelMAC</sender>
-   <signal>linkActivated(QString)</signal>
-   <receiver>Dialog</receiver>
-   <slot>open()</slot>
-   <hints>
-    <hint type="sourcelabel">
-     <x>74</x>
-     <y>591</y>
-    </hint>
-    <hint type="destinationlabel">
-     <x>372</x>
-     <y>581</y>
     </hint>
    </hints>
   </connection>

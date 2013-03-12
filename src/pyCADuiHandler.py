@@ -57,7 +57,6 @@ class StartDialog(QtGui.QDialog, Dlg):
         self.connect(self.buttonPrev, QtCore.SIGNAL("clicked()"), self.lowerTicker)
         self.connect(self.buttonBrowse, QtCore.SIGNAL("clicked()"), self.onBrowse)
         self.connect(self.buttonAero, QtCore.SIGNAL("clicked()"), self.onAeroSwitch)
-        self.connect(self.labelMAC, QtCore.SIGNAL("linkActivated(QString)"), self.onMac)
 
         # set fields
         self.list = environment.list
@@ -75,9 +74,6 @@ class StartDialog(QtGui.QDialog, Dlg):
         self.isPDM.setChecked(1)
         self.isGerman.setChecked(1)
         self.isOpengl.setChecked(1)
-        
-        # show MAC
-        self.showMyMAC()
         
         # perform server test at startup
         self.onTest()
@@ -158,16 +154,16 @@ class StartDialog(QtGui.QDialog, Dlg):
         info = PySide.QtNetwork.QHostInfo.fromName(conf.pdmHostName)
         
         if info.error() == 0:
-            self.statusLight.setPixmap(QtGui.QPixmap(":/IPEK/img/icon_green.png"))
+            self.statusLight.setPixmap(QtGui.QPixmap(":/icons/img/icon_green.png"))
             self.isPDM.setEnabled(1)
             self.isPDM.setChecked(1)
             self.isStandalone.setChecked(0)
         elif info.error() == 1:
-            self.statusLight.setPixmap(QtGui.QPixmap(":/IPEK/img/icon_red.png"))
+            self.statusLight.setPixmap(QtGui.QPixmap(":/icons/img/icon_red.png"))
             self.isStandalone.setChecked(1)
             self.isPDM.setEnabled(0)
         else:
-            self.statusLight.setPixmap(QtGui.QPixmap(":/IPEK/img/icon_grey.png"))
+            self.statusLight.setPixmap(QtGui.QPixmap(":/icons/img/icon_grey.png"))
             self.isStandalone.setChecked(1)
             self.isPDM.setEnabled(1)
             self.isPDM.setChecked(0)
@@ -228,43 +224,6 @@ class StartDialog(QtGui.QDialog, Dlg):
         webbrowser.open(rssLinkURL.toString())
         
         return
-
-    def showMyMAC(self):
-        
-        try:
-            
-            profiles = eu.get("PRO_FILES") 
-            
-            # get all macs of all devices
-            list = os.popen(profiles + " bin\\i486_nt_host_id")
-            
-            print(list)
-
-            # regex pattern to filter cells of mac table
-            pattern = re.compile('"(.*?)"')
-            
-            # drop table header
-            list.readline()
-            
-            # match a cell in a line
-            matches = re.findall(pattern, list.readline())
-            
-            # get third cell
-            self.mac=matches[2]
-            
-            # set GUI label            
-            # temporarily disabled
-            url = urllib.parse({'program':'ptcschools4','hostid':self.mac})
-            link = "<qt> Host-ID: <a href=http://www.ptc.com/appserver/lm/programs/index.jsp?" + url + ">" + self.mac + "</a></qt>"
-            link = ''            
-            
-            self.labelMAC.setText(link)
-            
-        except:
-            
-            self.labelMAC.setText("Host-ID: not available")
-        
-        return
     
     def onMac(self):
         
@@ -293,7 +252,7 @@ class StartDialog(QtGui.QDialog, Dlg):
     def checkAero(self):
         
         # preset button color to green
-        self.buttonAero.setIcon(QtGui.QIcon(":/IPEK/img/start.png"))
+        self.buttonAero.setIcon(QtGui.QIcon(":/icons/img/icon_green.png"))
             
         # query uxsms (aero) status
         status = os.popen(os.getenv("systemroot")+"\system32\sc.exe query uxsms")
@@ -310,7 +269,7 @@ class StartDialog(QtGui.QDialog, Dlg):
             # try to match status code, if "1" set button to "red"
             try:
                 if match[0]=='4':
-                    self.buttonAero.setIcon(QtGui.QIcon(":/IPEK/img/exit.png"))
+                    self.buttonAero.setIcon(QtGui.QIcon(":/icons/img/icon_red.png"))
                     # exit function and return "4" = "aero is running"
                     return 1    
             except:

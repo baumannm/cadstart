@@ -659,7 +659,7 @@
     </property>
     <property name="icon">
      <iconset resource="pyCADuires.qrc">
-      <normaloff>:/IPEK/img/icon_rss.png</normaloff>:/IPEK/img/icon_rss.png</iconset>
+      <normaloff>:/icons/img/icon_rss.png</normaloff>:/icons/img/icon_rss.png</iconset>
     </property>
     <property name="iconSize">
      <size>

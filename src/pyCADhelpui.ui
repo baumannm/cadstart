@@ -37,10 +37,6 @@
    <property name="text">
     <string>FAQ</string>
    </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/icon_rss.png</normaloff>:/IPEK/img/icon_rss.png</iconset>
-   </property>
    <property name="autoDefault">
     <bool>true</bool>
    </property>
@@ -66,10 +62,6 @@
    <property name="text">
     <string>Pro/E Hilfe (lokal)</string>
    </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/pdmlink.png</normaloff>:/IPEK/img/pdmlink.png</iconset>
-   </property>
    <property name="autoDefault">
     <bool>true</bool>
    </property>
@@ -91,10 +83,6 @@
    </property>
    <property name="text">
     <string>CAD Kurs Homepage</string>
-   </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/ipek.png</normaloff>:/IPEK/img/ipek.png</iconset>
    </property>
    <property name="autoDefault">
     <bool>true</bool>
@@ -121,10 +109,6 @@
    <property name="text">
     <string>cad.de Forum</string>
    </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/cadde.png</normaloff>:/IPEK/img/cadde.png</iconset>
-   </property>
    <property name="autoDefault">
     <bool>true</bool>
    </property>
@@ -149,10 +133,6 @@
    </property>
    <property name="text">
     <string>PDMLink Hilfe</string>
-   </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/pdmlink.png</normaloff>:/IPEK/img/pdmlink.png</iconset>
    </property>
    <property name="autoDefault">
     <bool>true</bool>
@@ -192,10 +172,6 @@
    <property name="text">
     <string>CAD Skript</string>
    </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/icon_pdf.png</normaloff>:/IPEK/img/icon_pdf.png</iconset>
-   </property>
    <property name="autoDefault">
     <bool>true</bool>
    </property>
@@ -221,10 +197,6 @@
    <property name="text">
     <string>PDM Skript</string>
    </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/icon_pdf.png</normaloff>:/IPEK/img/icon_pdf.png</iconset>
-   </property>
    <property name="autoDefault">
     <bool>true</bool>
    </property>
@@ -249,10 +221,6 @@
    </property>
    <property name="text">
     <string>CAD Übungsbuch</string>
-   </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/icon_pdf.png</normaloff>:/IPEK/img/icon_pdf.png</iconset>
    </property>
    <property name="autoDefault">
     <bool>true</bool>
@@ -300,7 +268,7 @@
     <string>Wählen Sie die Sprache aus, die von Pro/E verwendet werden soll</string>
    </property>
    <property name="text">
-    <string>IPEK Hilfe</string>
+    <string>Hilfe</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
@@ -385,10 +353,6 @@
    <property name="text">
     <string>Screencasts</string>
    </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/icon_cast.png</normaloff>:/IPEK/img/icon_cast.png</iconset>
-   </property>
    <property name="autoDefault">
     <bool>true</bool>
    </property>
@@ -410,10 +374,6 @@
    </property>
    <property name="text">
     <string>Videos der Übungen</string>
-   </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/icon_rss.png</normaloff>:/IPEK/img/icon_rss.png</iconset>
    </property>
    <property name="autoDefault">
     <bool>true</bool>
@@ -437,90 +397,7 @@
    <property name="text">
     <string>Sprechstunden</string>
    </property>
-   <property name="icon">
-    <iconset resource="pyCADuires.qrc">
-     <normaloff>:/IPEK/img/icon_office.png</normaloff>:/IPEK/img/icon_office.png</iconset>
-   </property>
    <property name="autoDefault">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>94</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="pyCADuires.qrc">:/IPEK/img/icon_lock.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_5">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>134</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="pyCADuires.qrc">:/IPEK/img/icon_lock.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_6">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>212</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="pyCADuires.qrc">:/IPEK/img/icon_lock.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_7">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>174</y>
-     <width>16</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap resource="pyCADuires.qrc">:/IPEK/img/icon_lock.png</pixmap>
-   </property>
-   <property name="scaledContents">
     <bool>true</bool>
    </property>
   </widget>
