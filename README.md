@@ -18,6 +18,8 @@ In order to run you will need
   * PySide
   * feedparser
   
+Make sure to set the path to your Python 3 root directory in setpath.bat  
+  
 In order to use and test you will need
   * a Pro/Engineer version installed on your computer
   * a directory structure with several Pro/E specific config files, templates and resources. This structure will be added to this project soon, as soon as some legal issues are solved.
