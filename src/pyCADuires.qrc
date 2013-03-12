@@ -1,0 +1,29 @@
+<RCC>
+  <qresource prefix="IPEK" >
+    <file>img/start.png</file>
+    <file>img/exit.png</file>
+    <file>img/1leftarrow.png</file>
+    <file>img/1rightarrow.png</file>
+    <file>img/icon_browsing.png</file>
+    <file>img\cadde.png</file>
+    <file>img\icon_at.png</file>
+    <file>img\pdmlink.png</file>
+    <file>img\icon_rss.png</file>
+    <file>img\icon_fileopen.png</file>
+    <file>img\icon_cache.png</file>
+    <file>img\icon_green.png</file>
+    <file>img\icon_grey.png</file>
+    <file>img\ipek.png</file>
+    <file>img\icon_help.png</file>
+    <file>img\icon_mail.png</file>
+    <file>img\icon_update.png</file>
+    <file>img\icon_cache.png</file>
+    <file>img\logo.png</file>
+    <file>img\icon_red.png</file>
+    <file>img\icon_pdf.png</file>
+    <file>img\icon_office.png</file>
+    <file>img\icon_cam.png</file>
+    <file>img\icon_cast.png</file>
+    <file>img\icon_lock.png</file>
+  </qresource>
+</RCC>

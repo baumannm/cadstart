@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>254</width>
+    <height>560</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Hilfethemen</string>
+  </property>
+  <widget class="QCommandLinkButton" name="helpFAQ">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>30</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>FAQ</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/icon_rss.png</normaloff>:/IPEK/img/icon_rss.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpProHelp">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>390</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>Pro/E Hilfe (lokal)</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/pdmlink.png</normaloff>:/IPEK/img/pdmlink.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpIPEKhp">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>310</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>CAD Kurs Homepage</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/ipek.png</normaloff>:/IPEK/img/ipek.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpCADde">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>510</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>cad.de Forum</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/cadde.png</normaloff>:/IPEK/img/cadde.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpPDMhelp">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>430</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>PDMLink Hilfe</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/pdmlink.png</normaloff>:/IPEK/img/pdmlink.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="Line" name="line">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>470</y>
+     <width>201</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpCADSkript">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>70</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>CAD Skript</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/icon_pdf.png</normaloff>:/IPEK/img/icon_pdf.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpPDMSkript">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>110</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>PDM Skript</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/icon_pdf.png</normaloff>:/IPEK/img/icon_pdf.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpCADUebungen">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>150</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>CAD Übungsbuch</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/icon_pdf.png</normaloff>:/IPEK/img/icon_pdf.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="Line" name="line_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>350</y>
+     <width>201</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>79</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>Wählen Sie die Sprache aus, die von Pro/E verwendet werden soll</string>
+   </property>
+   <property name="whatsThis">
+    <string>Wählen Sie die Sprache aus, die von Pro/E verwendet werden soll</string>
+   </property>
+   <property name="text">
+    <string>IPEK Hilfe</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>370</y>
+     <width>79</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>Wählen Sie die Sprache aus, die von Pro/E verwendet werden soll</string>
+   </property>
+   <property name="whatsThis">
+    <string>Wählen Sie die Sprache aus, die von Pro/E verwendet werden soll</string>
+   </property>
+   <property name="text">
+    <string>PTC Hilfe</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>490</y>
+     <width>79</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <family>Arial</family>
+     <weight>75</weight>
+     <bold>true</bold>
+    </font>
+   </property>
+   <property name="toolTip">
+    <string>Wählen Sie die Sprache aus, die von Pro/E verwendet werden soll</string>
+   </property>
+   <property name="whatsThis">
+    <string>Wählen Sie die Sprache aus, die von Pro/E verwendet werden soll</string>
+   </property>
+   <property name="text">
+    <string>3rd Party</string>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpScreencasts">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>190</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>Screencasts</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/icon_cast.png</normaloff>:/IPEK/img/icon_cast.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpMovies">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>Videos der Übungen</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/icon_rss.png</normaloff>:/IPEK/img/icon_rss.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QCommandLinkButton" name="helpOffice">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>270</y>
+     <width>191</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="text">
+    <string>Sprechstunden</string>
+   </property>
+   <property name="icon">
+    <iconset resource="pyCADuires.qrc">
+     <normaloff>:/IPEK/img/icon_office.png</normaloff>:/IPEK/img/icon_office.png</iconset>
+   </property>
+   <property name="autoDefault">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>94</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="pyCADuires.qrc">:/IPEK/img/icon_lock.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>134</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="pyCADuires.qrc">:/IPEK/img/icon_lock.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>212</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="pyCADuires.qrc">:/IPEK/img/icon_lock.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_7">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>174</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="pyCADuires.qrc">:/IPEK/img/icon_lock.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>helpFAQ</tabstop>
+  <tabstop>helpProHelp</tabstop>
+  <tabstop>helpPDMhelp</tabstop>
+  <tabstop>helpIPEKhp</tabstop>
+  <tabstop>helpCADde</tabstop>
+ </tabstops>
+ <resources>
+  <include location="pyCADuires.qrc"/>
+ </resources>
+ <connections/>
+</ui>

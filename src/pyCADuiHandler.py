@@ -1,0 +1,320 @@
+#######################################################
+#
+# UI
+#
+#######################################################
+
+import conf
+import pyDefStart
+import pyCADhelpuiHandler
+import pyCADdialoguiHandler
+import webbrowser
+import PySide.QtNetwork
+import pyCADticker
+import pyCADfeedbackFormuiHandler
+import pyCADutils
+import os
+import re
+import envUtils as eu
+import urllib
+
+import pathUtils as pu
+
+from PySide              import QtGui, QtCore
+
+from pyCADui            import Ui_Dialog as Dlg
+
+class StartDialog(QtGui.QDialog, Dlg): 
+    
+    list = []
+    paths = []
+    releases = []
+    aero = True
+    path = ""
+    release = ""
+    graphics = ""
+    currItem = 0
+    environment = 0
+    mac = ""
+    
+    # Constructor
+    def __init__(self, environment): 
+        
+        QtGui.QDialog.__init__(self) 
+        self.setupUi(self)
+
+        # Slots
+        self.connect(self.buttonStart, QtCore.SIGNAL("clicked()"), self.onStart)
+        self.connect(self.proList, QtCore.SIGNAL("currentIndexChanged(int)"), self.onSelect)
+        self.connect(self.openMailtoCAD, QtCore.SIGNAL("clicked()"), self.onMailto)
+        self.connect(self.openRSSFeed, QtCore.SIGNAL("clicked()"), self.onRSS)
+        self.connect(self.openHelp, QtCore.SIGNAL("clicked()"), self.onHelp)
+        self.connect(self.buttonVPN, QtCore.SIGNAL("clicked()"), self.onVPN)
+        self.connect(self.buttonTest, QtCore.SIGNAL("clicked()"), self.onTest)
+        self.connect(self.openCachetool, QtCore.SIGNAL("clicked()"), self.onCleanCache)
+        self.connect(self.ticker, QtCore.SIGNAL("anchorClicked(QUrl)"), self.onRSSLinkClicked)
+        self.connect(self.buttonNext, QtCore.SIGNAL("clicked()"), self.raiseTicker)
+        self.connect(self.buttonPrev, QtCore.SIGNAL("clicked()"), self.lowerTicker)
+        self.connect(self.buttonBrowse, QtCore.SIGNAL("clicked()"), self.onBrowse)
+        self.connect(self.buttonAero, QtCore.SIGNAL("clicked()"), self.onAeroSwitch)
+        self.connect(self.labelMAC, QtCore.SIGNAL("linkActivated(QString)"), self.onMac)
+
+        # set fields
+        self.list = environment.list
+        self.paths = environment.paths
+        self.releases = environment.releases
+        self.aero = environment.options.aero
+        self.showTicker()
+        self.versionLabel.setText("cadstart V" + conf.version)
+        self.environment = environment
+        
+        # fill DropDown
+        self.proList.addItems(self.list)
+        
+        # set checkboxes
+        self.isPDM.setChecked(1)
+        self.isGerman.setChecked(1)
+        self.isOpengl.setChecked(1)
+        
+        # show MAC
+        self.showMyMAC()
+        
+        # perform server test at startup
+        self.onTest()
+        
+        # check if aero is running
+        self.checkAero()
+        
+    # action at click on start
+    def onStart(self): 
+                
+        if self.isPDM.isChecked():
+            self.release = self.release + ' ' + "PDM"
+            
+        if self.isStandalone.isChecked():
+            self.release = self.release
+
+        if self.isGerman.isChecked():
+            self.lang = "german"
+        
+        if self.isEnglish.isChecked():
+            self.lang = "english"
+            
+        if self.isOpengl.isChecked():
+            self.graphics = "graphics opengl"
+            
+        if self.isWin32gdi.isChecked():
+            self.graphics = "graphics win32_gdi"
+            
+        pyDefStart.defStart(self)
+        
+        self.close()
+    
+    # action on select
+    def onSelect(self, pathNo):
+        
+        self.path = self.paths[pathNo]
+        print(self.path)
+        
+        self.release = self.releases[pathNo]
+        print(self.release)
+        
+    # action on links
+    def onMailto(self):
+        
+        dialog = pyCADfeedbackFormuiHandler.FeedbackDialog(self.list) 
+        
+        # dialog show
+        dialog.show()
+        dialog.exec_()
+        
+        return
+        
+    def onHelp(self):
+        
+        # dialog instance
+        dialog = pyCADhelpuiHandler.HelpDialog(self.environment) 
+        
+        # dialog show
+        dialog.show()
+        dialog.exec_()
+        
+        return
+    
+    def onRSS(self):
+        
+        webbrowser.open(conf.rssURL)
+        
+        return
+    
+    def onVPN(self):
+        
+        webbrowser.open(conf.vpnURL)
+        
+        return
+    
+    def onTest(self):
+        
+        info = PySide.QtNetwork.QHostInfo.fromName(conf.pdmHostName)
+        
+        if info.error() == 0:
+            self.statusLight.setPixmap(QtGui.QPixmap(":/IPEK/img/icon_green.png"))
+            self.isPDM.setEnabled(1)
+            self.isPDM.setChecked(1)
+            self.isStandalone.setChecked(0)
+        elif info.error() == 1:
+            self.statusLight.setPixmap(QtGui.QPixmap(":/IPEK/img/icon_red.png"))
+            self.isStandalone.setChecked(1)
+            self.isPDM.setEnabled(0)
+        else:
+            self.statusLight.setPixmap(QtGui.QPixmap(":/IPEK/img/icon_grey.png"))
+            self.isStandalone.setChecked(1)
+            self.isPDM.setEnabled(1)
+            self.isPDM.setChecked(0)
+        return
+    
+    def onCleanCache(self):
+        
+        # dialog instance
+        dialog = pyCADdialoguiHandler.AskDialog()
+                
+        dialog.setText("Vorsicht:")
+        dialog.setURL(pu.textURL("delcache"))
+        
+        # dialog modal show
+        dialog.exec_()
+        
+        if dialog.getStatus():
+            
+            pyCADutils.cleanCache()
+            
+            print("cache geloescht")
+            
+            return
+        
+        else:
+            
+            print("abgebrochen")
+            
+            return
+        
+    def showTicker(self):
+        
+        item = self.currItem
+        
+        pyCADticker.setMessage(self, item)
+        
+        return
+    
+    def raiseTicker(self):
+        
+        self.currItem += 1
+        
+        pyCADticker.setMessage(self, self.currItem)
+        
+        return
+    
+    def lowerTicker(self):
+        
+        self.currItem -= 1
+        
+        pyCADticker.setMessage(self, self.currItem)
+        
+        return
+        
+    def onRSSLinkClicked(self, rssLinkURL):
+        
+        #PyQt4.Qt.QUrl.
+        webbrowser.open(rssLinkURL.toString())
+        
+        return
+
+    def showMyMAC(self):
+        
+        try:
+            
+            profiles = eu.get("PRO_FILES") 
+            
+            # get all macs of all devices
+            list = os.popen(profiles + " bin\\i486_nt_host_id")
+            
+            print(list)
+
+            # regex pattern to filter cells of mac table
+            pattern = re.compile('"(.*?)"')
+            
+            # drop table header
+            list.readline()
+            
+            # match a cell in a line
+            matches = re.findall(pattern, list.readline())
+            
+            # get third cell
+            self.mac=matches[2]
+            
+            # set GUI label            
+            # temporarily disabled
+            url = urllib.parse({'program':'ptcschools4','hostid':self.mac})
+            link = "<qt> Host-ID: <a href=http://www.ptc.com/appserver/lm/programs/index.jsp?" + url + ">" + self.mac + "</a></qt>"
+            link = ''            
+            
+            self.labelMAC.setText(link)
+            
+        except:
+            
+            self.labelMAC.setText("Host-ID: not available")
+        
+        return
+    
+    def onMac(self):
+        
+        params = urllib.parse({'program':'ptcschools4','hostid':self.mac})
+        url = "http://www.ptc.com/appserver/lm/programs/index.jsp?" + params
+            
+        webbrowser.open(url)
+        
+    def onBrowse(self):
+        
+        return
+    
+    def onAeroSwitch(self):
+        
+        # if aero is running switch it off and vice versa
+        if self.checkAero() == 1:
+            os.system("net stop uxsms")    
+        elif self.checkAero() == 0:
+            os.system("net start uxsms")
+            
+        # refresh button color in GUI
+        self.checkAero()
+                
+        return
+    
+    def checkAero(self):
+        
+        # preset button color to green
+        self.buttonAero.setIcon(QtGui.QIcon(":/IPEK/img/start.png"))
+            
+        # query uxsms (aero) status
+        status = os.popen(os.getenv("systemroot")+"\system32\sc.exe query uxsms")
+        
+        # prepare regex pattern to fin status code (1 = stopped, 4 = running)
+        pattern = re.compile('STATE.*?(\d).*')
+        
+        # iterate through status message
+        for ln in status:
+            
+            # search for status code in each line
+            match = re.findall(pattern, ln)
+            
+            # try to match status code, if "1" set button to "red"
+            try:
+                if match[0]=='4':
+                    self.buttonAero.setIcon(QtGui.QIcon(":/IPEK/img/exit.png"))
+                    # exit function and return "4" = "aero is running"
+                    return 1    
+            except:
+                foo = 1
+                
+        # exit function and return "1" = "aero is stopped"
+        return 0
