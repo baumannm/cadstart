@@ -1,0 +1,9 @@
+.project
+.pydevproject
+.settings
+__pycache__
+/log/*
+*.bak
+setpath.bat
+std.err
+std.out
