@@ -26,3 +26,7 @@ movieURL        = "http://www.ubka.uni-karlsruhe.de/diva/podcast/podcast.php?id=
 
 # Third Party
 caddeURL = "http://ww3.cad.de/cgi-bin/ubb/forumdisplay.cgi?action=topics&forum=Pro+ENGINEER&number=12"
+
+# Directroy
+
+appconfig = "..\\appconfig\\"

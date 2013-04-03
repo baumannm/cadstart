@@ -26,19 +26,16 @@ from pyCADui            import Ui_Dialog as Dlg
 
 class StartDialog(QtGui.QDialog, Dlg): 
     
-    list = []
-    paths = []
-    releases = []
+    desclist = []
     aero = True
-    path = ""
-    release = ""
     graphics = ""
     currItem = 0
-    environment = 0
+    CADversions = 0
     mac = ""
     
+        
     # Constructor
-    def __init__(self, environment): 
+    def __init__(self, CADversions, options): 
         
         QtGui.QDialog.__init__(self) 
         self.setupUi(self)
@@ -59,16 +56,16 @@ class StartDialog(QtGui.QDialog, Dlg):
         self.connect(self.buttonAero, QtCore.SIGNAL("clicked()"), self.onAeroSwitch)
 
         # set fields
-        self.list = environment.list
-        self.paths = environment.paths
-        self.releases = environment.releases
-        self.aero = environment.options.aero
+        self.versionslist = CADversions
+        self.aero = options.aero
         self.showTicker()
         self.versionLabel.setText("cadstart V" + conf.version)
-        self.environment = environment
         
         # fill DropDown
-        self.proList.addItems(self.list)
+        for i in range(len(self.versionslist)):
+            self.desclist.append(self.versionslist[i].description)
+
+        self.proList.addItems(self.desclist)
         
         # set checkboxes
         self.isPDM.setChecked(1)
@@ -83,12 +80,13 @@ class StartDialog(QtGui.QDialog, Dlg):
         
     # action at click on start
     def onStart(self): 
-                
-        if self.isPDM.isChecked():
-            self.release = self.release + ' ' + "PDM"
+        
+        # TODO: PDM via Combobox not checkboxes        
+        #if self.isPDM.isChecked():
+        #    self.release = self.release + ' ' + "PDM"
             
-        if self.isStandalone.isChecked():
-            self.release = self.release
+        #if self.isStandalone.isChecked():
+        #    self.release = self.release
 
         if self.isGerman.isChecked():
             self.lang = "german"
@@ -109,16 +107,14 @@ class StartDialog(QtGui.QDialog, Dlg):
     # action on select
     def onSelect(self, pathNo):
         
-        self.path = self.paths[pathNo]
-        print(self.path)
-        
-        self.release = self.releases[pathNo]
-        print(self.release)
+        self.selected = self.versionslist[pathNo]
+        print(self.selected.path)
+        print(self.selected.release)
         
     # action on links
     def onMailto(self):
         
-        dialog = pyCADfeedbackFormuiHandler.FeedbackDialog(self.list) 
+        dialog = pyCADfeedbackFormuiHandler.FeedbackDialog(self.desclist) 
         
         # dialog show
         dialog.show()
@@ -129,7 +125,7 @@ class StartDialog(QtGui.QDialog, Dlg):
     def onHelp(self):
         
         # dialog instance
-        dialog = pyCADhelpuiHandler.HelpDialog(self.environment) 
+        dialog = pyCADhelpuiHandler.HelpDialog(self.CADversions) 
         
         # dialog show
         dialog.show()

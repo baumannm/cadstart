@@ -10,7 +10,7 @@ import sys
 import os
 
 from pyCADidentifier    import CADidentifier
-from PySide              import QtGui
+from PySide             import QtGui
 from pyCADuiHandler     import StartDialog
 from optparse           import OptionParser
 
@@ -24,6 +24,8 @@ sys.stderr = open(os.getenv('TEMP')+'\pyCADstartSTDERR.txt', 'w')
 
 parser = OptionParser(usage="%prog [-p] [-z] [-c] [-i] [-a]", version="%prog IPEKumgebung "+conf.version)
 parser.add_option("-p", "", dest="profiles", help="full path to IPEKUmgebung", metavar="<path>")
+
+# TODO: delete
 parser.add_option("-z", "", dest="propath", help="full path to Pro/E install dir", metavar="<path>")
 
 parser.add_option("-c", "", action="store_true", dest="cleancache", default=False, help="cleans the cache")
@@ -46,12 +48,13 @@ else:
 if options.cleancache:
     pyCADutils.cleanCache()
 
-# identify installed pro/E from registry
-environment = CADidentifier(options)
+# identify installed Pro/E from registry
+CADversions = CADidentifier(options).list
+
 
 # dialog instance
 app     = QtGui.QApplication(sys.argv)
-dialog  = StartDialog(environment)
+dialog  = StartDialog(CADversions, options)
 
 # dialog show
 dialog.show() 

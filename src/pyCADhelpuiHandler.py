@@ -13,10 +13,10 @@ from pyCADhelpui        import Ui_Dialog as Dlg
 
 class HelpDialog(QtGui.QDialog, Dlg): 
     
-    environment = 0
+
     
     # Constructor
-    def __init__(self, environment): 
+    def __init__(self, CADversions): 
         
         QtGui.QDialog.__init__(self) 
         self.setupUi(self)
@@ -34,7 +34,7 @@ class HelpDialog(QtGui.QDialog, Dlg):
         self.connect(self.helpMovies, QtCore.SIGNAL("clicked()"), self.onMovies)
         self.connect(self.helpOffice, QtCore.SIGNAL("clicked()"), self.onOffice)
         
-        self.environment = environment
+        self.CADversions = CADversions
         
     def onCADde(self):
         
@@ -97,12 +97,12 @@ class HelpDialog(QtGui.QDialog, Dlg):
         return
     
     def onProHelp(self):
-        
+        # TODO: Helpcenter in Creo. Path???
         noHelp = True
-        for i in self.environment.paths:
+        for i in self.CADversions:
             
-            pathDE = pu.normPath(i + "\\html\\german\\proe\\default.htm")
-            pathEN = pu.normPath(i + "\\html\\usascii\\proe\\default.htm")
+            pathDE = pu.normPath(i.installdir + "\\html\\german\\proe\\default.htm")
+            pathEN = pu.normPath(i.installdir + "\\html\\usascii\\proe\\default.htm")
             
             if os.path.exists(pathDE):
                 

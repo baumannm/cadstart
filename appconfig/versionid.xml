@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- own versions 03.2013 -->
+<versionidlist>
+	<version>
+		<name>Pro/ENGINEER</name>
+		<release>Wildfire 4.0</release>
+		<versionid>WF4</versionid>
+		<startcommand>\bin\proe.exe</startcommand>
+		<configdir>\\Wildfire 4.0</configdir>
+	</version>
+	<version>
+		<name>Pro/ENGINEER</name>
+		<release>Wildfire 5.0</release>
+		<versionid>WF5</versionid>
+		<startcommand>\bin\proe.exe</startcommand>
+		<configdir>\\Wildfire 5.0</configdir>
+	</version>
+	<version>
+		<name>Creo Parametric</name>
+		<release>1.0</release>
+		<versionid>CP1</versionid>
+		<startcommand>\bin\parametric.exe</startcommand>
+		<configdir>\\Creo 1.0</configdir>
+	</version>	
+	<version>
+		<name>Creo Parametric</name>
+		<release>2.0</release>
+		<versionid>CP2</versionid>
+		<startcommand>\bin\parametric.exe</startcommand>
+		<configdir>\\Creo 2.0</configdir>
+	</version>	
+	
+</versionidlist>
