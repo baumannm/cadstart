@@ -2,11 +2,11 @@
   <qresource prefix="icons">
     <file>img/1leftarrow.png</file>
     <file>img/1rightarrow.png</file>
-    <file>img\icon_at.png</file>
-    <file>img\icon_rss.png</file>
-    <file>img\icon_green.png</file>
-    <file>img\icon_grey.png</file>
-    <file>img\icon_red.png</file>
+    <file>img/icon_at.png</file>
+    <file>img/icon_rss.png</file>
+    <file>img/icon_green.png</file>
+    <file>img/icon_grey.png</file>
+    <file>img/icon_red.png</file>
   </qresource>
   <qresource prefix="logos">
     <file>img/opvlogo.png</file>
