@@ -18,6 +18,11 @@ In order to run you will need
   * PySide
   * feedparser
   
+In oder to compile you will need
+	* all prerequisites in order to run
+	* cx_freeze
+Attention! A 64 bit Python (necessarily with 64 bit addons like PySide and cx_freeze) will cause a 64 bit-only!! executable.
+  
 Make sure to set the path to your Python 3 root directory in setpath.bat  
   
 In order to use and test you will need
