@@ -18,7 +18,7 @@ class versionid:
         self.releasemask = releasemask
         self.versionid = versid
         self.startcommand = startcommand
-        self.cofigdir = configdir
+        self.configdir = configdir
         
         
         

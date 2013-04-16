@@ -12,25 +12,17 @@ def defStart(handler):
     os.environ["PRO_CONF_FILES"]    = handler.selected.versionid.versionid
     os.environ["LANG"]              = handler.lang
     
-    # prepare paths
-    #prosrc = '"' + profiles + '\\konfiguration\\' + handler.release + '\\config.pro' + '"'
-    #protgt = '"' + temp + '\\config.pro' + '"'
-    #supsrc = '"' + profiles + '\\konfiguration\\' + handler.release + '\\config.sup' + '"'
-    #suptgt = '"' + temp + '\\config.sup' + '"'
-    #winsrc = '"' + profiles + '\\konfiguration\\_gemeinsam\\config_win\config.win' + '"'
-    #wintgt = '"' + temp + '\\config.win' + '"'
-
     # prepare copy commands
-    #cppro = prosrc + ' ' + protgt
-    #cpsup = supsrc + ' ' + suptgt
-    #cpwin = winsrc + ' ' + wintgt
-    
-    #print(cpwin)
+    target = '"' + temp +'\\"'
+    source = '"' + profiles + '\\konfiguration\\' + handler.selected.versionid.configdir + '\\*.*"'
+    copycmd = 'copy ' + source + ' ' + target + ' /Y'
+    #print(copycmd)
     
     # copy
-    #os.system('copy ' + cppro)
-    #os.system('copy ' + cpsup)
-    #os.system('copy ' + cpwin)
+    try:
+        os.system(copycmd)
+    except:
+        print('Error while copying config-files')
 
     setGraphics(handler, temp, profiles)
     #setModelTreeLanguage(handler, temp, profiles)
