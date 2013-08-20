@@ -1,5 +1,9 @@
-﻿# Version
-version = "3.3beta"
+﻿import os
+
+
+
+# Version
+version = "4.0 beta"
 
 # homepage
 cadURL = "http://www.ipek.kit.edu/124.php"
@@ -29,4 +33,11 @@ caddeURL = "http://ww3.cad.de/cgi-bin/ubb/forumdisplay.cgi?action=topics&forum=P
 
 # Directroy
 
-appconfig = "..\\appconfig\\"
+appconfig  = ""
+temp       = ""
+applicationdir = ""
+
+tempmergedir = "cadstart-config"
+configdir   = "configuration"
+appconfig   = "..\\appconfig\\"
+workdir     = ""

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- configoptions 04.2013 -->
+<configoptionlist>
+	<configoption>
+		<id>graphic</id>
+		<displayname_de>Grafikeinstellungen</displayname_de>
+		<displayname_en>graphic settings</displayname_en>
+		<subfolder>graphic</subfolder>
+		<!-- <common>FALSE</common> -->
+		<optionfile>
+			<id>high</id>
+			<displayname_de>Qualität</displayname_de>
+			<displayname_en>quality</displayname_en>
+			<filename>high.pro</filename>	
+		</optionfile>
+		<optionfile>
+			<id>medium</id>
+			<displayname_de>Mittel</displayname_de>
+			<displayname_en>medium</displayname_en>
+			<filename>medium.pro</filename>	
+		</optionfile>
+		<optionfile>
+			<id>low</id>
+			<displayname_de>Geschwindigkeit</displayname_de>
+			<displayname_en>performance</displayname_en>
+			<filename>low.pro</filename>	
+		</optionfile>
+	</configoption>
+	
+	<configoption>
+		<id>graphicmode</id>
+		<displayname_de>Grafikmodus</displayname_de>
+		<displayname_en>graphicmode</displayname_en>
+		<subfolder>graphicmode</subfolder>
+		<!-- <common>FALSE</common> -->
+		<optionfile>
+			<id>opengl</id>
+			<displayname_de>OpenGL</displayname_de>
+			<displayname_en>OpenGL</displayname_en>
+			<filename>opengl.pro</filename>	
+		</optionfile>
+		<optionfile>
+			<id>win32gdi</id>
+			<displayname_de>win32 GDI</displayname_de>
+			<displayname_en>win32 GDI</displayname_en>
+			<filename>win32gdi.pro</filename>	
+		</optionfile>
+	</configoption>
+
+
+
+	
+</configoptionlist>

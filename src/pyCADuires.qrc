@@ -9,7 +9,6 @@
     <file>img/icon_red.png</file>
   </qresource>
   <qresource prefix="logos">
-    <file>img/opvlogo.png</file>
-    <file>img/opvquad.png</file>
+    <file>img/ipeklogo.png</file>
   </qresource>
 </RCC>

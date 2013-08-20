@@ -7,3 +7,4 @@ __pycache__
 setpath.bat
 std.err
 std.out
+/configuration/

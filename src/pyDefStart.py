@@ -1,64 +1,68 @@
 import os
+import conf
 import envUtils as eu
+import configmerge
+import glob
+import rememberme
 
 def defStart(handler):
 
     # read some environment variables       
     profiles = eu.get("PRO_FILES") 
-    temp     = os.getenv("TEMP")
 
     # put environment variables
-    os.environ["PRO_DIRECTORY"]     = handler.selected.installdir
-    os.environ["PRO_CONF_FILES"]    = handler.selected.versionid.versionid
+    os.environ["PRO_DIRECTORY"]     = handler.selectedProE.installdir
+    os.environ["PRO_CONF_FILES"]    = handler.selectedProE.versionid.versionid
     os.environ["LANG"]              = handler.lang
     
+    a = handler.selectedProE.name
+    b = handler.selectedProE.release
+    c = handler.selectedProE.datecode
+    d = handler.selectedProE.installdir
+    e = handler.selectedServer.ID
+    f = handler.lang
+    g = handler.graphics
+    
+    
+    rememberme.savesettings(a, b, c, d, e, f, g)
+    
+    
+    # merge configs
+    basedir = profiles + '\\' + conf.configdir + '\\' + handler.selectedProE.versionid.configdir + '\\configpro'
+    if not os.path.exists(conf.temp + '\\' + conf.tempmergedir):
+        os.makedirs(conf.temp + '\\' + conf.tempmergedir)
+    targetfile = conf.temp + '\\' + conf.tempmergedir + '\\config.pro'
+    filelist = glob.glob(basedir + '\\*.pro')
+    filelist.append(basedir + '\\' + handler.PDMserver.subfolder + '\\' +  handler.selectedServer.filename)
+    filelist.append(basedir + '\\' + 'treecfg' + '\\' +  handler.lang + '.pro')
+    filelist.append(basedir + '\\' + 'graphics' + '\\' +  handler.graphics + '.pro')
+    configmerge.mergelist(filelist, targetfile)
+    
+    
+    
     # prepare copy commands
-    target = '"' + temp +'\\"'
-    source = '"' + profiles + '\\konfiguration\\' + handler.selected.versionid.configdir + '\\*.*"'
-    copycmd = 'copy ' + source + ' ' + target + ' /Y'
-    #print(copycmd)
+    
+    target = '"' + conf.workdir +'\\"'
+    source1 = '"' + profiles + '\\' + conf.configdir + '\\' + handler.selectedProE.versionid.configdir + '\\*.*"'
+    source2 = '"' + conf.temp + '\\' + conf.tempmergedir + '\\*.*"'
+
+    
+    copycmd1 = 'copy ' + source1 + ' ' + target + ' /Y'
+    copycmd2 = 'copy ' + source2 + ' ' + target + ' /Y'
     
     # copy
     try:
-        os.system(copycmd)
+        os.system(copycmd1)
+        os.system(copycmd2)
     except:
         print('Error while copying config-files')
 
-    setGraphics(handler, temp, profiles)
+    # todo: stop Aero
     #setModelTreeLanguage(handler, temp, profiles)
     
     # start proe
-    os.chdir(temp)
-    startupcommand = '"'+handler.selected.installdir+handler.selected.versionid.startcommand+'"'
+    os.chdir(conf.workdir)
+    startupcommand = '"' + handler.selectedProE.installdir + '\\' + handler.selectedProE.versionid.startcommand + '"'
     os.system('START "Creo" ' + startupcommand)
 
-def setGraphics(handler, temp, profiles):
-    
-    # stop aero automatically if application was started with parameter "-a"
-    if handler.aero:
-        os.system("net stop uxsms")
-        
-    f = open(temp + '\\config.pro', "a")
-    f.write("!graphics mode set by cadstart\n")
-    f.write(handler.graphics)
-    f.close()
-    
-def setModelTreeLanguage(handler, temp, profiles):
-    
-    f1= open(profiles + '\\konfiguration\\_gemeinsam\\tree_cfg\\asm_tree.cfg','r')
-    atreetgt= open(temp + '\\asm_tree.cfg','w')    
-    atreesrc = f1.readlines()
 
-    
-    if handler.lang == "german":
-        # modify model tree
-        for line in atreesrc:
-            atreetgt.write(line.replace('COLUMN','!COLUMN'))
-    
-    if handler.lang == "english":
-        # modify model tree
-        for line in atreesrc:
-            atreetgt.write(line.replace("SPALTE","!SPALTE"))
-        
-    f1.close()
-    atreetgt.close()

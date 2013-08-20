@@ -1,6 +1,6 @@
 :: set python path
 
-set PYTHON=F:\Programme\Programmieren\Python33
+set PYTHON=D:\Programme\Programmieren\Python33
 
 set PARSERPATH=%PYTHON%\Lib\site-packages\PySide\scripts
 

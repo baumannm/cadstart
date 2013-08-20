@@ -16,7 +16,7 @@ def mergelist(filelist, targetfile):
         mergefile(file, temptarget)
     if os.path.isfile(targetfile):
         os.remove(targetfile)
-    target = open(targetfile,'a')
+    target = open(targetfile,'w+')
     target.writelines(temptarget)
     target.close
     

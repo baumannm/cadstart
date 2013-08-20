@@ -27,7 +27,7 @@ from pyCADui            import Ui_Dialog as Dlg
 class StartDialog(QtGui.QDialog, Dlg): 
     
     desclist = []
-    aero = True
+    PDMlist = []
     graphics = ""
     currItem = 0
     CADversions = 0
@@ -35,14 +35,15 @@ class StartDialog(QtGui.QDialog, Dlg):
     
         
     # Constructor
-    def __init__(self, CADversions, options): 
+    def __init__(self, CADversions, CoreOptList, options, lastsettings): 
         
         QtGui.QDialog.__init__(self) 
         self.setupUi(self)
 
         # Slots
         self.connect(self.buttonStart, QtCore.SIGNAL("clicked()"), self.onStart)
-        self.connect(self.proList, QtCore.SIGNAL("currentIndexChanged(int)"), self.onSelect)
+        self.connect(self.proList, QtCore.SIGNAL("currentIndexChanged(int)"), self.onSelectProE)
+        self.connect(self.ServerList, QtCore.SIGNAL("currentIndexChanged(int)"), self.onSelectServer)
         self.connect(self.openMailtoCAD, QtCore.SIGNAL("clicked()"), self.onMailto)
         self.connect(self.openRSSFeed, QtCore.SIGNAL("clicked()"), self.onRSS)
         self.connect(self.openHelp, QtCore.SIGNAL("clicked()"), self.onHelp)
@@ -52,31 +53,45 @@ class StartDialog(QtGui.QDialog, Dlg):
         self.connect(self.ticker, QtCore.SIGNAL("anchorClicked(QUrl)"), self.onRSSLinkClicked)
         self.connect(self.buttonNext, QtCore.SIGNAL("clicked()"), self.raiseTicker)
         self.connect(self.buttonPrev, QtCore.SIGNAL("clicked()"), self.lowerTicker)
-        self.connect(self.buttonBrowse, QtCore.SIGNAL("clicked()"), self.onBrowse)
-        self.connect(self.buttonAero, QtCore.SIGNAL("clicked()"), self.onAeroSwitch)
 
         # set fields
         self.versionslist = CADversions
-        self.aero = options.aero
+        self.serverlist = CoreOptList.PDMserverList.optionfilelist
+        self.PDMserver = CoreOptList.PDMserverList
         self.showTicker()
         self.versionLabel.setText("cadstart V" + conf.version)
         
         # fill DropDown
         for i in range(len(self.versionslist)):
             self.desclist.append(self.versionslist[i].description)
+            
+        for displayitem in CoreOptList.PDMdisplaylist:
+            self.PDMlist.append(displayitem)
 
         self.proList.addItems(self.desclist)
+        self.ServerList.addItems(self.PDMlist)
         
         # set checkboxes
-        self.isPDM.setChecked(1)
         self.isGerman.setChecked(1)
         self.isOpengl.setChecked(1)
         
         # perform server test at startup
         self.onTest()
         
-        # check if aero is running
-        self.checkAero()
+        # set last used
+        
+        self.proList.setCurrentIndex(lastsettings.CADid)
+        self.ServerList.setCurrentIndex(lastsettings.ServerID)
+        if lastsettings.language == "german":
+            self.isGerman.setChecked(1)
+        if lastsettings.language == "english":
+            self.isEnglish.setChecked(1)
+            
+        if lastsettings.graphics == "opengl":
+            self.isOpengl.setChecked(1)
+        if lastsettings.graphics == "win32gdi":
+            self.isWin32gdi.setChecked(1)
+        
         
     # action at click on start
     def onStart(self): 
@@ -95,21 +110,26 @@ class StartDialog(QtGui.QDialog, Dlg):
             self.lang = "english"
             
         if self.isOpengl.isChecked():
-            self.graphics = "graphics opengl"
+            self.graphics = "opengl"
             
         if self.isWin32gdi.isChecked():
-            self.graphics = "graphics win32_gdi"
+            self.graphics = "win32gdi"
             
         pyDefStart.defStart(self)
         
         self.close()
     
-    # action on select
-    def onSelect(self, pathNo):
+    # action on select Proe / Creo Version
+    def onSelectProE(self, pathNo):
         
-        self.selected = self.versionslist[pathNo]
-        print(self.selected.path)
-        print(self.selected.release)
+        self.selectedProE = self.versionslist[pathNo]
+        print(self.selectedProE.release)
+        
+    # action on select Server
+    def onSelectServer(self, pathNo):
+        
+        self.selectedServer = self.serverlist[pathNo]
+
         
     # action on links
     def onMailto(self):
@@ -151,18 +171,10 @@ class StartDialog(QtGui.QDialog, Dlg):
         
         if info.error() == 0:
             self.statusLight.setPixmap(QtGui.QPixmap(":/icons/img/icon_green.png"))
-            self.isPDM.setEnabled(1)
-            self.isPDM.setChecked(1)
-            self.isStandalone.setChecked(0)
         elif info.error() == 1:
             self.statusLight.setPixmap(QtGui.QPixmap(":/icons/img/icon_red.png"))
-            self.isStandalone.setChecked(1)
-            self.isPDM.setEnabled(0)
         else:
             self.statusLight.setPixmap(QtGui.QPixmap(":/icons/img/icon_grey.png"))
-            self.isStandalone.setChecked(1)
-            self.isPDM.setEnabled(1)
-            self.isPDM.setChecked(0)
         return
     
     def onCleanCache(self):
@@ -228,48 +240,3 @@ class StartDialog(QtGui.QDialog, Dlg):
             
         webbrowser.open(url)
         
-    def onBrowse(self):
-        
-        return
-    
-    def onAeroSwitch(self):
-        
-        # if aero is running switch it off and vice versa
-        if self.checkAero() == 1:
-            os.system("net stop uxsms")    
-        elif self.checkAero() == 0:
-            os.system("net start uxsms")
-            
-        # refresh button color in GUI
-        self.checkAero()
-                
-        return
-    
-    def checkAero(self):
-        
-        # preset button color to green
-        self.buttonAero.setIcon(QtGui.QIcon(":/icons/img/icon_green.png"))
-            
-        # query uxsms (aero) status
-        status = os.popen(os.getenv("systemroot")+"\system32\sc.exe query uxsms")
-        
-        # prepare regex pattern to fin status code (1 = stopped, 4 = running)
-        pattern = re.compile('STATE.*?(\d).*')
-        
-        # iterate through status message
-        for ln in status:
-            
-            # search for status code in each line
-            match = re.findall(pattern, ln)
-            
-            # try to match status code, if "1" set button to "red"
-            try:
-                if match[0]=='4':
-                    self.buttonAero.setIcon(QtGui.QIcon(":/icons/img/icon_red.png"))
-                    # exit function and return "4" = "aero is running"
-                    return 1    
-            except:
-                foo = 1
-                
-        # exit function and return "1" = "aero is stopped"
-        return 0

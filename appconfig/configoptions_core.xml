@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- configoptions 04.2013 -->
+<configoptionlist>
+	
+	<configoption>
+		<id>PDM</id>
+		<displayname_de>PDM-Server</displayname_de>
+		<displayname_en>PDM-server</displayname_en>
+		<subfolder>PDM</subfolder>
+		<!-- <common>FALSE</common> -->
+		<optionfile>
+			<id>offline</id>
+			<displayname_de>offline</displayname_de>
+			<displayname_en>offline</displayname_en>
+			<filename>offline.pro</filename>	
+		</optionfile>
+		<optionfile>
+			<id>MKLS1</id>
+			<displayname_de>MKL-Server 1</displayname_de>
+			<displayname_en>MD-server 1</displayname_en>
+			<filename>MKLS1.pro</filename>	
+		</optionfile>
+		<optionfile>
+			<id>MKLS2</id>
+			<displayname_de>MKL-Server 2</displayname_de>
+			<displayname_en>MD-server 2</displayname_en>
+			<filename>MKLS2.pro</filename>	
+		</optionfile>
+		<optionfile>
+			<id>IPEK</id>
+			<displayname_de>IPEK Produktiv</displayname_de>
+			<displayname_en>IPEK productiv</displayname_en>
+			<filename>IPEK.pro</filename>	
+		</optionfile>
+	</configoption>
+		
+</configoptionlist>
